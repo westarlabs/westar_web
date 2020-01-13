@@ -1,18 +1,32 @@
-# ReadMe
+# Westar 网站以及博客系统
+
+### PreRequirement
+
+1. Install [git-lfs](https://github.com/git-lfs/git-lfs)
+2. Install [hugo](https://gohugo.io/getting-started/installing/)
+
+### Checkout
+
+```shell script
+git clone git@github.com:westarlabs/westar_web.git
+```
 
 ### 发布内容
 
-- 发布文章
+- 发布博客
 
 ```
-# 新建文稿文件
+# 新建博客文件
 
-hugo new news/FileName.md # news目录创建文件
-hugo new faq/FileName.md  # faq目录创建文件
+hugo new --kind blog blog/blog_title
 
-# 编辑文件 ./content/news/FileName.md 添加内容
+# 编辑文件 ./content/blog/blog_title/index.md
+
+# 博客图片放置于 ./content/blog/blog_title/images 目录下，封面图片的名字应该为 cover，可以是 jpg 或者 png。
 
 ```
+
+注: blog_title 文件名必须是英文或者拼音 
 
 - 发布文件头部参数说明示例
 
@@ -22,11 +36,11 @@ title: "标题"
 date: 2017-11-17T12:41:44+08:00
 draft: false # 草稿状态否
 description: "文章描述，相关应用地方调用该字段"
-keywords: # 关键字用于seo优化词
+tags: # 标签
 - filecoin
 - blockchain
 categories: blog # 栏目，组合显示在页面title中
-cover: http://xxx.jpg 或 /img/xxx.jpg # 文章引用缩略图处使用，没有使用系统默认1-4张图随机
+
 ---
 ```
 
@@ -56,13 +70,13 @@ cover: http://xxx.jpg 或 /img/xxx.jpg # 文章引用缩略图处使用，没有
 ### 运行server
 - 开发运行
 ```
-hugo server --theme=westar --buildDrafts
+hugo server --minify -d public
 ```
 - 后台运行
 ```
 hugo server -D
 ```
-
+- 通过 http://localhost:1313/ 查看效果， 生成的文件放置于 public 目录下。
 
 
 
