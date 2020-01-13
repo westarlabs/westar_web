@@ -1,7 +1,7 @@
 ---
 title: Filecoin 基本原理解读
 date: 2019-12-12
-description: "2019年12月07日，Westar实验室组织了第一次技术Meetup，本次Meetup聚焦在Rust网络开发方面"
+description: "IPFS 是一个点对点的分布式文件系统，但是光有 IPFS 是不够的，缺少必要的激励机制，整个系统无法形成有效的闭环，构建在 IPFS 之上的 Filecoin 就是为了解决这一问题。它提供了一个供需市场，存储提供者和存储使用方可以通过竞价的模式去达成交易，最终，通过市场来调节存储的成本，使用方能够根据价格选择速度、冗余程度和成本。在这篇文章中，我们来聊聊 Filecoin 的思路。"
 author: lerencao
 tags:
 - filecoin
