@@ -1,0 +1,89 @@
+{{- partial "head.html" . -}}
+
+
+<!--第一栏 开始 -->
+<div class="main-section section-item-title">
+    <div class="item-title">
+        <h3>联系我们</h3>
+        <p class="item-title-line"></p>
+        <p class="item-desc">
+            September 21,2019 | Chris Cook, Samson Mow
+        </p>
+
+
+    </div>
+</div>
+<!--第一栏 结束 -->
+
+<!--主体内容 开始 -->
+<div class="news-container-detail contact-info-bg">
+    <div class="am-container">
+        <div class="contact-info">
+
+            <div class="">
+                <ul data-am-widget="gallery" class="am-gallery sm-block-grid-1
+  md-block-grid-3 lg-block-grid-3 am-gallery-imgbordered" data-am-gallery="{  }">
+                    <li>
+                        <div class="am-gallery-item">
+                            <a href="mailto:fanngyuan@gmail.com">
+                                <img src="{{ .Site.BaseURL }}/images/ic_contact_email@2x.png"
+                                     alt="远方 有一个地方 那里种有我们的梦想" />
+                                <h3 class="am-gallery-title">E-mail</h3>
+                                <div class="am-gallery-desc">fanngyuan@gmail.com</div>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="am-gallery-item">
+                            <a href="">
+                                <img src="{{ .Site.BaseURL }}/images/ic_contact_phone@2x.png"
+                                     alt="某天 也许会相遇 相遇在这个好地方" />
+                                <h3 class="am-gallery-title">Phone</h3>
+                                <div class="am-gallery-desc">+86 18888888888</div>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="am-gallery-item">
+                            <a href="">
+                                <img src="{{ .Site.BaseURL }}/images/ic_contact_address@2x.png"
+                                     alt="某天 也许会相遇 相遇在这个好地方" />
+                                <h3 class="am-gallery-title">Address</h3>
+                                <div class="am-gallery-desc">Beijing, China</div>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="am-container contact-info">
+        <h3 class="news-title contact-info-title">发送消息给我们</h3>
+        <div class="am-tab-panel" id="tab3">
+            <form class="am-form">
+                <div class="contact-form">
+                    <div class="col-sm-6 col-end">
+                        <input type="text" class="am-input-sm" placeholder="YOUR NAME">
+                    </div>
+                    <div class="col-sm-6 col-end">
+                        <input type="text" class="am-input-sm"  placeholder="YOUR E-MAIL">
+                    </div>
+                    <div class="col-sm-12 col-end">
+                        <textarea rows="10" placeholder="YOUR MESSAGE"></textarea>
+                    </div>
+                    <div class="col-sm-12 col-end">
+                        <button type="button" class="am-btn am-btn-primary am-btn-xs contact-submit">发送</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+</div>
+
+{{- partial "footer.html" (dict "dark" true) -}}

@@ -1,0 +1,67 @@
+{{- partial "head.html" . -}}
+
+<!--第一栏 开始 -->
+<div class="main-section section-item-title">
+    <div class="item-title">
+
+        <h3>Blog</h3>
+        <p class="item-title-line"></p>
+        <p class="item-desc">
+            博客
+        </p>
+
+
+    </div>
+</div>
+<!--第一栏 结束 -->
+
+<!--第二栏 开始 -->
+
+<div class="am-g am-g-fixed blog-g-fixed news-container-section">
+    <div class="col-md-8">
+
+        <ul data-am-widget="gallery" class="am-gallery sm-block-grid-1
+  md-block-grid-1 lg-block-grid-1 am-gallery-imgbordered" data-am-gallery="{  }">
+
+            {{ range .Paginator.Pages }}
+
+            <li>
+                <div class="am-gallery-item">
+                    <a href="{{ .Permalink }}">
+                        <div class="am-gallery-desc">{{ .Date.Format "2006-01-02" }}</div>
+                        <h3 class="am-gallery-title">{{ .Title }}</h3>
+                        {{ if .Params.description }}
+                        <div class="am-gallery-desc">{{ .Params.description }}</div>
+                        {{ end }}
+                    </a>
+                </div>
+            </li>
+
+            {{ end }}
+
+        </ul>
+
+        {{- partial "pagination.html" . -}}
+
+    </div>
+
+    <div class="col-md-4 blog-sidebar">
+
+        <div data-am-widget="titlebar" class="am-titlebar am-titlebar-default">
+            <h2 class="am-titlebar-title">搜索</h2>
+        </div>
+        <div class="am-list-news am-list-news-default news-search-form">
+
+            <input type="text" class="am-form-field am-input-sm news-search-input" placeholder="输入关键词">
+            <button type="submit" class="am-btn am-btn-default am-btn-sm news-search-btn">搜索</button>
+
+        </div>
+
+
+    </div>
+
+</div>
+<!--第二栏 结束 -->
+
+
+{{- partial "footer.html" (dict "dark" false) -}}

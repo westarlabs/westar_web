@@ -1,0 +1,100 @@
+{{ define "header" -}}
+{{- partial "head.html" . -}}
+{{ end }}
+{{ define "body" -}}
+
+<!--第一栏 开始 -->
+<div class="main-section section-one" id="section-one">
+
+    <div class="section-one-bg">
+        <div class="container-width-max">
+            <div class="section-one-block-bg">
+            </div>
+            <div class="section-left section-left-fir">
+                <h1>分层区块链的先行者</h1>
+                <div class="section-one-desc">
+                    创建下一代分层区块链及金融基础设施
+                </div>
+                <a href="/about/">
+                    <button>
+                        MORE
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--第一栏 结束 -->
+
+<!--第二栏 开始 -->
+<div class="main-section section-two section-bg-resize">
+    <div class="section-bg-container">
+        <div class="section-two-bg">
+        </div>
+    </div>
+    <div class="section-right-container">
+        <div class="section-one-right float-left">
+            <h3>Sirius Protocol</h3>
+            <div class="section-one-desc">
+                去中心化、安全、多方、及时的二层支付协议
+            </div>
+            <a href="projects/sirius/">
+                <button>
+                    LEARN MORE
+                </button>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!--第二栏 结束 -->
+
+<!--第三栏 开始 -->
+<div class="main-section section-three section-bg-resize">
+    <div class="section-bg-container section-bg-container-right">
+        <div class="section-three-bg">
+        </div>
+    </div>
+    <div class="section-right-container">
+        <div class="section-left section-left-thr section-three-left float-left">
+            <h3>Thor Protocol</h3>
+            <div class="section-one-desc">
+                闪电网络上的智能合约和仲裁服务
+            </div>
+            <a href="projects/thor/">
+                <button>
+                    LEARN MORE
+                </button>
+            </a>
+        </div>
+    </div>
+</div>
+<!--第三栏 开始 -->
+
+<!--第四栏 开始 -->
+<div class="main-section section-four section-bg-resize">
+    <div class="section-bg-container">
+        <div class="section-four-bg">
+        </div>
+    </div>
+    <div class="section-right-container">
+        <div class="section-one-right float-left">
+            <h3>Stargate Protocol</h3>
+            <div class="section-one-desc">
+                Starcoin 的二层协议实现，实现了通用的状态通道，提供扩展性以及便捷性
+            </div>
+            <a href="projects/stargate/">
+                <button>
+                    LEARN MORE
+                </button>
+            </a>
+        </div>
+    </div>
+</div>
+<!--第四栏 结束 -->
+
+{{ end }}
+
+{{ define "footer" -}}
+{{- partial "footer.html" (dict "dark" true) -}}
+{{ end }}

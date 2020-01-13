@@ -1,0 +1,114 @@
+{{ define "title" }}{{ .Title | markdownify }} | {{ .Site.Title }}{{ end }}
+
+{{ define "schema-dot-org" }}
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+    {{- /* Google recommends the headline be no more than 110 characters */}}
+    "headline": "{{ substr .Title 0 110 }}",
+    {{- with .Params.images -}}{{ range first 1 . }}
+    "image": {
+    "@type": "ImageObject",
+    "url": "{{ . | absURL }}"
+    {{- /* Don't try to get imageConfig if image param is not local */ -}}
+    {{- if not (or (hasPrefix . "http://") (hasPrefix . "https://")) -}}
+    {{- with (imageConfig (printf "/static/%s" .)) -}}
+    ,
+    "height": "{{ .Height }}",
+    "width": "{{ .Width }}"
+    {{- end -}}
+    {{ end }}
+    },
+    {{- end -}}{{ end }}
+    "url": "{{ printf "%s" .Permalink }}",
+    "wordCount": "{{ .WordCount }}",
+    {{- $ISO8601 := "2006-01-02T15:04:05-07:00" }}
+    {{- if not .PublishDate.IsZero }}
+    "datePublished": {{ .PublishDate.Format $ISO8601 }},
+    {{- else }}
+    "datePublished": {{ .Date.Format $ISO8601 }},
+    {{- end }}
+    {{- if not .Lastmod.IsZero }}
+    "dateModified": {{ .Lastmod.Format $ISO8601 }},
+    {{- end }}
+    {{- with .Site.Social.GooglePlus }}
+    "publisher": "{{ printf "%s" . }}",
+    {{- end }}
+    "author": {
+    "@type": "Person",
+    "name": "{{ .Params.author | default .Site.Params.author }}"
+    }
+    {{- if or (.Params.keywords) (or (.Params.categories) (.Params.tags)) -}}
+    ,
+    "keywords": "{{ delimit (union .Params.keywords (union .Params.categories .Params.tags)) ", " }}"
+    {{- end }}
+    {{- with .Params.description -}}
+    ,
+    "description": "{{ . }}"
+    {{- end }}
+    }
+</script>
+
+{{ end }}
+
+{{ define "header"}}
+{{- partial "header_light.html" . -}}
+{{ end }}
+
+{{ define "body" }}
+{{ $dateFormat := default "Mon Jan 2, 2006" (index .Site.Params "date_format") }}
+<div class="news-container-detail">
+    <div class="am-container">
+        <div class="blog-main">
+
+<article data-am-widget="paragraph" class="am-paragraph am-paragraph-default"
+         data-am-paragraph="{ tableScrollable: true, pureview: true }">
+    <header>
+        <h2 class="news-title about-color blog-post-title" dir="auto">{{ .Title | markdownify }}</h2>
+        <p class="blog-post-meta">
+            <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format $dateFormat }}</time>
+            {{ i18n "authoredBy" }}
+            {{ if isset .Params "author" }}
+                {{ .Params.author }}
+            {{ else }}
+                {{.Site.Params.author}}
+            {{ end }}
+
+            {{ if or (.Params.categories) (.Params.tags) }} {{ i18n "postedIn" }}
+            {{ partial "meta-terms.html" . }}{{ end }}
+        </p>
+    </header>
+    {{ .Content }}
+
+    {{ if .IsTranslated }}
+    <h4>{{ i18n "translations" }}</h4>
+    <ul>
+        {{ range .Translations }}
+        <li>
+            <a href="{{ .Permalink }}">{{ .Lang }}: {{ .Title }}{{ if .IsPage }}{{ end }}</a>
+        </li>
+        {{ end }}
+    </ul>
+    {{ end }}
+
+    <hr>
+    <footer>
+        {{ partial "sharing-icons.html" . }}
+    </footer>
+
+    </article>
+
+        </div> {{ "<!-- /.blog-main -->" | safeHTML }}
+
+    </div> {{ "<!-- /.row -->" | safeHTML }}
+</div> {{ "<!-- /.container -->" | safeHTML }}
+
+{{ end }}
+
+{{ define "footer" -}}
+{{- partial "footer.html" (dict "dark" false) -}}
+{{ end }}
+
+
+{{- /* vim: set ts=2 sw=2 et: */}}

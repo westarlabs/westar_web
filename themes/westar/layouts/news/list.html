@@ -1,0 +1,140 @@
+{{- partial "head.html" . -}}
+
+<!--第一栏 开始 -->
+<div class="main-section section-item-title">
+    <div class="item-title">
+
+        <h3>新闻</h3>
+        <p class="item-title-line"></p>
+        <p class="item-desc">
+            关于WESTAR的最新动态
+        </p>
+
+
+    </div>
+</div>
+<!--第一栏 结束 -->
+
+<!--第二栏 开始 -->
+
+<div class="am-g am-g-fixed blog-g-fixed news-container-section">
+    <div class="col-md-8">
+        <!--<ul data-am-widget="gallery" class="am-gallery sm-block-grid-2-->
+  <!--md-block-grid-2 lg-block-grid-2 am-gallery-imgbordered" data-am-gallery="{  }">-->
+
+            <!--<li>-->
+                <!--<div class="am-gallery-item">-->
+                    <!--<a href="http://cn.bing.com/az/hprichv/LondonTrainStation_GettyRR_139321755_ZH-CN742316019.jpg">-->
+                        <!--<img src="http://cn.bing.com/az/hprichv/LondonTrainStation_GettyRR_139321755_ZH-CN742316019.jpg"-->
+                             <!--alt="远方 有一个地方 那里种有我们的梦想"/>-->
+                        <!--<div class="am-gallery-desc">2019.11.08 10:51:18</div>-->
+                        <!--<h3 class="am-gallery-title">周小川谈区块链技术:央行选择票据和贸易融资做试点</h3>-->
+                        <!--<div class="am-gallery-desc">研究在哪些方面有应用的可能性，也要立足于现实，就是当前来讲哪些可以付诸于试点，同时在稳步试点的情况下来…</div>-->
+                    <!--</a>-->
+                <!--</div>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<div class="am-gallery-item">-->
+                    <!--<a href="http://s.cn.bing.net/az/hprichbg/rb/CardinalsBerries_ZH-CN10679090179_1366x768.jpg">-->
+                        <!--<img src="http://s.cn.bing.net/az/hprichbg/rb/CardinalsBerries_ZH-CN10679090179_1366x768.jpg"-->
+                             <!--alt="某天 也许会相遇 相遇在这个好地方"/>-->
+                        <!--<h3 class="am-gallery-title">某天 也许会相遇 相遇在这个好地方</h3>-->
+                        <!--<div class="am-gallery-desc">2375-09-26</div>-->
+                    <!--</a>-->
+                <!--</div>-->
+            <!--</li>-->
+        <!--</ul>-->
+
+        <ul data-am-widget="gallery" class="am-gallery sm-block-grid-1
+  md-block-grid-1 lg-block-grid-1 am-gallery-imgbordered" data-am-gallery="{  }">
+
+
+            {{ with .Site.GetPage "/news" }}
+            {{ range .Paginator.Pages }}
+
+            <li>
+                <div class="am-gallery-item">
+                    <a href="{{ .Permalink }}">
+                        {{ if isset .Params "cover" }}
+                        <img src="{{ .Params.cover }}" alt="{{ .Title }}"/>
+                        {{ else }}
+                        <img src="{{ .Site.BaseURL }}/img/default/{{ index (shuffle (seq 1 4)) 0 }}.jpg"
+                             alt="{{ .Title }}"/>
+                        {{ end }}
+
+                        <div class="am-gallery-desc">{{ .Date.Format "2006-01-02 15:04:05" }}</div>
+                        <h3 class="am-gallery-title">{{ .Title }}</h3>
+                        {{ if .Params.description }}
+                        <div class="am-gallery-desc">{{ .Params.description }}</div>
+                        {{ end }}
+                    </a>
+                </div>
+            </li>
+
+            {{ end }}
+            {{ end }}
+
+        </ul>
+
+        {{- partial "pagination.html" . -}}
+
+    </div>
+
+    <div class="col-md-4 blog-sidebar">
+
+        <div data-am-widget="titlebar" class="am-titlebar am-titlebar-default">
+            <h2 class="am-titlebar-title">搜索</h2>
+        </div>
+        <div class="am-list-news am-list-news-default news-search-form">
+
+            <input type="text" class="am-form-field am-input-sm news-search-input" placeholder="输入关键词">
+            <button type="submit" class="am-btn am-btn-default am-btn-sm news-search-btn">搜索</button>
+
+        </div>
+
+
+        <div data-am-widget="titlebar" class="am-titlebar am-titlebar-default">
+            <h2 class="am-titlebar-title">最新动态</h2>
+        </div>
+
+        <div data-am-widget="list_news" class="am-list-news am-list-news-default">
+            <!--列表标题-->
+
+            <div class="am-list-news-bd">
+                <ul class="am-list">
+                    <!--缩略图在标题左边-->
+
+                    {{ with .Site.GetPage "/news" }}
+                    {{ range first 5 .Pages }}
+
+                    <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left">
+                        <div class="am-col col-sm-4 am-list-thumb">
+                            <a href="{{ .Permalink }}">
+                                {{ if isset .Params "cover" }}
+                                <img src="{{ .Params.cover }}" alt="222{{ .Title }}"/>
+                                {{ else }}
+                                <img src="{{ .Site.BaseURL }}/img/default/{{ index (shuffle (seq 1 4)) 0 }}.jpg"
+                                     alt="111{{ .Title }}"/>
+                                {{ end }}
+                            </a>
+                        </div>
+                        <div class="am-col col-sm-8 am-list-main">
+                            <h3 class="am-list-item-hd">
+                                <a href="{{ .Permalink }}">{{ .Title }}</a>
+                            </h3>
+                            <div class="am-list-item-text">{{ .Date.Format "2006-01-02 15:04:05" }}</div>
+                        </div>
+                    </li>
+
+                    {{ end }}
+                    {{ end }}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--第二栏 结束 -->
+
+
+{{- partial "footer.html" (dict "dark" false) -}}

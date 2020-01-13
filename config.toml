@@ -1,0 +1,72 @@
+languageCode = "en-us"
+title = "Westar"
+
+theme="westar"
+
+uglyURLs=false
+relativeURLs=true
+hasCJKLanguage=true
+
+[[menu.main]]
+    identifier = "博客"
+    name = "博客"
+    weight = 1
+    url = "/blog/"
+
+[[menu.main]]
+    name = "项目"
+    url = "/"
+    weight = 1
+    pre = ""
+
+[[menu.main]]
+    parent = "项目"
+    identifier = "Sirius Protocol"
+    name = "Sirius Protocol"
+    weight = 2
+    pre = "去中心化、安全、多方、及时的二层支付协议"
+    url = "/projects/sirius/"
+
+
+[[menu.main]]
+    parent = "项目"
+    identifier = "Thor Protocol"
+    name = "Thor Protocol"
+    weight = 2
+    pre = "闪电网络上的智能合约和仲裁服务"
+    url = "/projects/thor/"
+
+[[menu.main]]
+    parent = "项目"
+    identifier = "Stargate Protocol"
+    name = "Stargate Protocol"
+    weight = 2
+    pre = "Starcoin 的二层协议实现"
+    url = "/projects/stargate/"
+
+
+#[[menu.main]]
+#    identifier = "新闻"
+#    name = "新闻"
+#    weight = 2
+#    url = "/news/#"
+
+#[[menu.main]]
+#    identifier = "开发者"
+#   name = "开发者"
+#    weight = 2
+#    url = "/contact/#"
+
+[[menu.main]]
+    identifier = "关于我们"
+    name = "关于我们"
+    weight = 2
+    url = "/about/"
+
+
+
+
+[params]
+  keywords="Westar Blockchain"
+  description="创建下一代分层区块链及金融基础设施"
+  author="westar"

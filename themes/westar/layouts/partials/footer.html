@@ -1,0 +1,56 @@
+{{$dark := .dark}}
+<footer class="footer {{if (eq $dark false)}} footer-light{{ end }}">
+    <div class="footer-logo">
+        <img src="{{ .Site.BaseURL }}/images/{{if $dark }}footer_logo_light.png{{else}}footer_logo_dark.png{{end}}" width="50%" height="50%" alt="">
+    </div>
+    <p class="foolter-slogo">关注我们，追踪项目最新状态</p>
+    <div class="foolter-follow">
+        <ul>
+            <li><a href="https://github.com/westarlabs/"><img src="{{ .Site.BaseURL }}/images/{{if $dark }}github_light.png{{else}}github_dark.png{{end}}" alt=""></a></li>
+        </ul>
+    </div>
+    <p>Copyright © <a href="/" target="_blank">Westar</a> 2018-2019</p>
+</footer>
+<script src="{{ .Site.BaseURL }}/js/zepto.min.js"></script>
+<script src="{{ .Site.BaseURL }}/js/amazeui.min.js"></script>
+<script>
+    $(function () {
+        $(window).scroll(function () {
+            var top = $(window).scrollTop();
+            if (top > 120) {
+                $("#header").css({"background": "#110651"})
+            } else {
+                $("#header").css({"background-color": "rgba(0,0,0,0)"})
+            }
+        });
+
+        function winResize() {
+            var w = $(window).width();
+            var h = $(window).height();
+            $("#section-one").css({"height": h, "width": w});
+            var p = h / w
+            // 首页banner 背景图长宽比
+            if (p >= 0.58) {
+                $(".section-one-bg").css({
+                    "background-size": "auto 100%"
+                })
+            } else {
+                $(".section-one-bg").css({
+                    "background-size": "100% auto"
+                })
+            }
+        }
+
+        winResize();
+
+        $(window).resize(function () {
+            winResize();
+        });
+
+        var faqLenth = $(".faq-index").length;
+        for (var i = 0; i < faqLenth; i++) {
+            $(".faq-index").eq(i).html(i + 1)
+        }
+
+    })
+</script>

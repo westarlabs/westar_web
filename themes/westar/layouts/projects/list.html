@@ -1,0 +1,52 @@
+{{- partial "head.html" . -}}
+
+<!--第一栏 开始 -->
+<div class="main-section section-item-title">
+    <div class="item-title">
+
+        <h3>Projects</h3>
+        <p class="item-title-line"></p>
+        <p class="item-desc">
+             项目
+        </p>
+
+
+    </div>
+</div>
+<div class="projects">
+            <ul>
+            {{ with .Site.GetPage "/projects" }}
+            {{$projects := .Pages}}
+            {{ range $index, $project := $projects }}
+            {{ with $project }}
+                <li>
+            <div class="main-section projects-section section-bg-resize">
+                <div class="section-bg-container">
+                    <div class="section-x-bg">
+                        <img src="{{ .Permalink }}{{.Params.cover}}" />
+                    </div>
+                </div>
+                <div class="section-right-container">
+                    <div class="section-one-right float-left">
+                        <h3>{{ .Title }}</h3>
+                        <div class="section-one-desc">
+                            {{ if .Params.description }}
+                            {{ .Params.description }}
+                            {{ end }}
+                        </div>
+                        <a href="{{ .Permalink }}">
+                            <button>
+                                LEARN MORE
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+                </li>
+            {{ end }}
+            {{ end }}
+            {{ end }}
+            </ul>
+
+</div>
+{{- partial "footer.html" (dict "dark" false) -}}

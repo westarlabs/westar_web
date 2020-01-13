@@ -1,0 +1,58 @@
+<header class="am-topbar am-topbar-fixed-top"
+        {{ if (eq .IsHome false) }}
+        style="background: #110651;"
+        {{ end }}
+>
+    <!--<header class="am-topbar">-->
+    <div class="am-container-big am-container-big-header">
+        <h1 class="am-topbar-brand">
+            <a href="{{ .Site.BaseURL }}/" alt="westar logo" class="logo-a"><img src="{{ .Site.BaseURL }}/images/logo.png" alt=""></a>
+        </h1>
+        <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only"
+                data-am-collapse="{target: '#collapse-head'}"><span class="am-sr-only">导航切换</span> <span
+                class="am-icon-bars"></span></button>
+
+        <div class="am-collapse am-topbar-collapse" id="collapse-head">
+            <div class="am-topbar-right">
+                <ul class="am-nav am-nav-pills am-topbar-nav">
+
+                    {{ $currentNode := . }}
+                    {{ range .Site.Menus.main }}
+                    {{ if .HasChildren }}
+                    <li class="am-dropdown {{if $currentNode.HasMenuCurrent "main" . }} am-active {{end}}" data-am-dropdown>
+                    <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:void(0);">{{ .Name }}</a>
+                    <ul class="am-dropdown-content">
+                        {{ range .Children }}
+                        <li>
+                            <a href="{{ .URL | absURL }}">
+                                <div class="nav-dropdown-item">
+                                    <div class="left">
+                                        <div class="icon nav-icon-sirius">
+
+                                        </div>
+                                    </div>
+                                    <div class="right">
+                                        <h3 class="am-gallery-title">{{ .Name }}</h3>
+                                        <div class="section-faq-desc">
+                                            {{ .Pre }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        {{ end }}
+
+                    </ul>
+                    </li>
+
+                    {{ else }}
+                    <li class="{{if $currentNode.HasMenuCurrent "main" . }} am-active {{end}}"  ><a href="{{ .URL }}">{{ .Name }}</a></li>
+                    {{ end }}
+                    {{ end }}
+
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</header>

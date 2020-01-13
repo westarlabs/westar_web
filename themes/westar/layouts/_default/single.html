@@ -1,0 +1,22 @@
+{{- partial "head.html" . -}}
+
+<!--主体内容 开始 -->
+<div class="news-container-detail">
+    <div class="am-container">
+        <h2 class="news-title about-color">{{ .Title }}</h2>
+        <div class="news-title-line">
+
+        </div>
+        <div class="news-date">{{ .Date.Format "2006-01-02" }}</div>
+        <article data-am-widget="paragraph" class="am-paragraph am-paragraph-default"
+                 data-am-paragraph="{ tableScrollable: true, pureview: true }">
+            {{ .Content }}
+        </article>
+
+    </div>
+</div>
+
+
+<!--主体内容 结束 -->
+
+{{- partial "footer.html" (dict "dark" false) -}}

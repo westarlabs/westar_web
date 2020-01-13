@@ -1,0 +1,11 @@
+  <section>
+    <h4>{{ i18n "share" }}</h4>
+    <nav class="am-nav sharing-icons">
+      <a class="am-nav-item" href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}" title="Share on Facebook"><span class="am-icon-facebook-square" aria-hidden="true"></span></a>
+      <a class="am-nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ .Permalink }}" title="Share on LinkedIn"><span class="am-icon-linkedin-square" aria-hidden="true"></span></a>
+      <a class="am-nav-item" href="https://twitter.com/intent/tweet?url={{ .Permalink }}&amp;text={{ .Title }}" title="Tweet this"><span class="am-icon-twitter-square"></span></a>
+      <a class="am-nav-item" href="http://service.weibo.com/share/share.php?url={{ .Permalink }}&amp;title={{ .Title }}" title="Share to weibo"><span class="am-icon-weibo"></span></a>
+    </nav>
+  </section>
+
+{{- /* vim: set ts=2 sw=2 et: */}}
