@@ -2,8 +2,8 @@
 title: Elary 协议解读
 date: 2020-01-21
 description: "Erlay 是优化比特币 p2p 网络中交易转发的一个协议，其优化了带宽占用和网络传输的效率。"
-author: fikgol
-draft: false
+aut---
+title: Elary 协议e
 tags:
 - elary
 - blockchain
@@ -117,5 +117,6 @@ sketch(B, b)，再传给Alice。这样也是可行的，但之前传输的 sketc
 
 ## 参考
 
-[1]: https://arxiv.org/abs/1905.10518
-[2]: https://github.com/sipa/minisketch/blob/master/doc/math.md
+1. [Bandwidth-Efficient Transaction Relay for Bitcoin](https://arxiv.org/abs/1905.10518)
+
+2. [The mathematics of Minisketch sketches](https://github.com/sipa/minisketch/blob/master/doc/math.md)
