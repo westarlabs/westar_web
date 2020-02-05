@@ -2,8 +2,8 @@
 title: Elary 协议解读
 date: 2020-01-21
 description: "Erlay 是优化比特币 p2p 网络中交易转发的一个协议，其优化了带宽占用和网络传输的效率。"
-aut---
-title: Elary 协议e
+author: fikgol
+draft: false
 tags:
 - elary
 - blockchain
