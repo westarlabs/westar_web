@@ -3,7 +3,7 @@ title: 以Transaction的生命周期为线索剖析Libra核心组件
 date: 2020-01-13
 description: "2020年1月04日，Westar实验室组织了第二次技术Meetup，我们围绕Libra主题，探讨了Libra架构、共识以及Move语言"
 author: 邓启明
-draft: true
+draft: false
 tags:
 - libra
 - blockchain
@@ -183,14 +183,3 @@ Storage是一个GRPC服务，存储了所有链上的数据，用户的账本状
 ### 总结
 
 ​	以上是Transaction整个生命周期的过程，依次经过AC、Mempool、Consensus、Executor、VM的处理，最终存储到Storage。然后我们深入到每一个组件或者服务，既介绍了他们的一些设计和实现，也了解了Transaction被处理的核心细节。
-
-
-
-
-
-
-
-
-
-
-

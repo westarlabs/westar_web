@@ -3,7 +3,7 @@ title: 剖析Libra的Network组件
 date: 2020-01-13
 description: "2020年1月04日，Westar实验室组织了第二次技术Meetup，我们围绕Libra主题，探讨了Libra架构、共识以及Move语言"
 author: 邓启明
-draft: true
+draft: false
 tags:
 - libra
 - blockchain
@@ -152,14 +152,3 @@ categories:
 ![network](./images/libra-start-4.png)
 
 其中黄色部分表示在Network的端口是开启了SubStream，添加了相应的协议和协议处理过程；绿色部分部分表示服务或者组件实例化，可以看出Storage和Executor不依赖Network；初始化Discovery协议的时候，节点会去连接seed节点，并且seed节点会验证Identity。以上是节点启动以及加入到网络的大概流程。
-
-
-
-
-
-
-
-
-
-
-

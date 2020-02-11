@@ -1,9 +1,9 @@
 ---
-title: 剖析Libra的Network组件
+title: 解析BFT的关键细节以及Libra的Consensus组件
 date: 2020-02-10
 description: "2020年1月04日，Westar实验室组织了第二次技术Meetup，我们围绕Libra主题，探讨了Libra架构、共识以及Move语言"
 author: 邓启明
-draft: true
+draft: false
 tags:
 - libra
 - blockchain
