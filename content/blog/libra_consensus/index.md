@@ -71,7 +71,7 @@ BFT比较复杂，概念也很多，因此，我们分成多步讲解，从简�
 拜占庭容错BFT（Byzantine Fault Tolerance）就是为了解决这个问题。这里有两个很关键的指标：
 
 1. 安全性：all correct nodes must agree on the same value，就是说所有的忠诚将军达成一致；
-2. 活性：all nodes must eventually decide on an output value，可以理解为，整体来看，一定会有投票结果；
+2. 活性：all nodes must eventually decide on an output value，可以理解为，投票一定会产生结果，也就是所有节点达成一致；
 
 安全性是目的，活性是所有造成投票进行不下去的各种异常的一个整体概况。为了同时保证安全性和活性，很容易提出问题：
 
@@ -183,10 +183,6 @@ BFT是围绕投票进行的，其中PBFT（实用拜占庭容错算法）最常�
 
 PBFT是一个非常经典的拜占庭容错算法。在两阶段确认的commit阶段，由于要带上其他节点签名的vote消息以证明自己的状态不是说谎来的，这导致了O(N^3)的消息复杂度，因此也有明显的瓶颈。有没有算法能解决这个问题呢？Libra的LibraBFT共识协议选用的 [Hotstuff](1) 拜占庭容错算法通过“门限签名+三阶段确认”很巧妙的解决了这个问题。
 
-![hotstuff-1](./images/hotstuff-1.png)
-
-
-
 Hotstuff的第一作者是康奈尔大学的在读博士生尹茂帆老师。对比前面的两阶段确认，我们看到，Hotstuff在prepare和commit中间多了一个pre-commit阶段，为什么多一轮投票就能解决消息复杂度的问题呢？
 
 首先，我们简单的说明一下门限签名的作用，感兴趣的可以自己去研究一下。n个节点通过某种方式给每个节点生成了一个私钥，但是只有一个公共的公钥。接下来，所有的投票信息都由属于自己的这把私钥进行(k,n)签名。同一条消息，只有集齐了k个节点的签名，才能构造出一个能通过公共的公钥验证成功的总签名。这样的话，节点的提案要想达成共识，必须收集2f+1个节点对同一条”同意该提案“的消息的签名，才能构造出一个能使用公共的公钥验证成功的总签名，否则就进入了超时流程。
@@ -201,7 +197,7 @@ Hotstuff的第一作者是康奈尔大学的在读博士生尹茂帆老师。对
 
 ④decide阶段：leader收到了2f+1个节点”msg3的pre-commitQC验证通过“的签名消息，这个时候等于leader收到共识达成一致的证明，然后使用这些签名正式构造一个commitQC总签名的消息msg4，广播给所有节点
 
-![hotstuff-2](./images/hotstuff-2.png)
+![hotstuff-1](./images/hotstuff-1.png)
 
 以上是三阶段确认的大概过程，有点绕口，从图可以看出，与两阶段对比，主要有两点不同：
 
@@ -209,23 +205,23 @@ Hotstuff的第一作者是康奈尔大学的在读博士生尹茂帆老师。对
 
 2. 所有节点只跟leader打交道：三阶段确认巧妙的通过门限签名，将本应该是所有节点都要收集的消息，优化成”leader统一收集，其他节点只需要对总签名进行校验“的过程，将消息复杂度降到了O(N)。当然，超时机制差不多，需要收集2f+1的超时签名构造一个总签名，替换掉commitQC。
 
-以上就是我认为的三阶段确认与两阶段确认最主要的区别。
+以上就是我认为的三阶段确认与两阶段确认最主要的区别，其中QC（quorum certificate）是法定节点数证书，可以理解为总的签名。
 
 
 
 ### 链式Hotstuff
 
-前面我们讲述了三阶段确认，在区块链的应用场景下，整个过程概括起来大概是这样的：
+前面我们讲述了三阶段确认其实是Basic HotStuff，在区块链的应用场景下，整个过程概括起来大概是这样的：
+
+![hotstuff-2](./images/hotstuff-2.png)
+
+总的来说就是”prepareQC->pre-commitQC->commitQC“这3个门限签名的QC不断的转换，hotstuff作者们在三阶段确认的基础上，又对算法做了进一步优化，这就是Chained HotStuff：
 
 ![hotstuff-3](./images/hotstuff-3.png)
 
-总的来说就是”prepareQC->pre-commitQC->commitQC“这3个门限签名的QC不断的转换，hotstuff作者们在三阶段确认的基础上，又对算法做了进一步优化，这就是链式hotstuff：
-
-![hotstuff-4](./images/hotstuff-4.png)
-
 投票轮次和网络消息都得到了很好的优化，将原本需要进行3轮的投票，合并到1轮了。最终的结果就成了这样：
 
-![hotstuff-5](./images/hotstuff-5.png)
+![hotstuff-4](./images/hotstuff-4.png)
 
 以上就是链式hotstuff设计巧妙的地方。
 
@@ -296,22 +292,3 @@ Libra的实现中有3种proposer策略：FixedProposer、MultipleOrderedProposer
 
 
 [1]: https://tedyin.com/archive/hotstuff-podc2019.pdf
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
