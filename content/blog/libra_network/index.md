@@ -1,7 +1,7 @@
 ---
 title: 剖析Libra的Network组件
 date: 2020-02-08
-description: "2020年1月04日，Westar实验室组织了第二次技术Meetup，我们围绕Libra主题，探讨了Libra架构、共识以及Move语言"
+description: "通过分析Node启动并加入到Libra网络的过程，介绍Network组件的设计与实现"
 author: 邓启明
 draft: false
 tags:

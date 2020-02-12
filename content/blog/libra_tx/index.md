@@ -1,7 +1,7 @@
 ---
 title: 以Transaction的生命周期为线索剖析Libra核心组件
 date: 2020-02-09
-description: "2020年1月04日，Westar实验室组织了第二次技术Meetup，我们围绕Libra主题，探讨了Libra架构、共识以及Move语言"
+description: "围绕Transaction的生命周期，分析其接收交易、打包区块、运行上链的过程，介绍Libra的Mempool、Executor以及Storage、VM等核心组件"
 author: 邓启明
 draft: false
 tags:
