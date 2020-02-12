@@ -195,3 +195,9 @@ Libra涉及的东西比较多，我们从三条线介绍Libra的设计与实现�
 ![network](./images/libra-start-4.png)
 
 其中黄色部分表示在Network的端口是开启了SubStream，添加了相应的协议和协议处理过程；绿色部分部分表示服务或者组件实例化，可以看出Storage和Executor不依赖Network；初始化Discovery协议的时候，节点会去连接seed节点，并且seed节点会验证Identity。以上是节点启动以及加入到网络的大概流程。
+
+
+
+### 相关连接
+https://github.com/libra/libra
+https://developers.libra.org/docs/the-libra-blockchain-paper

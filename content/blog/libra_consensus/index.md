@@ -189,7 +189,7 @@ BFT是围绕投票进行的，其中PBFT（实用拜占庭容错算法）最常�
 
 ### 三阶段确认的Hotstuff
 
-PBFT是一个非常经典的拜占庭容错算法。在两阶段确认的commit阶段，由于要带上其他节点签名的vote消息以证明自己的状态不是说谎来的，这导致了O(N^3)的消息复杂度，因此也有明显的瓶颈。有没有算法能解决这个问题呢？Libra的LibraBFT共识协议选用的 [Hotstuff](1) 拜占庭容错算法通过“门限签名+三阶段确认”很巧妙的解决了这个问题。
+PBFT是一个非常经典的拜占庭容错算法。在两阶段确认的commit阶段，由于要带上其他节点签名的vote消息以证明自己的状态不是说谎来的，这导致了O(N^3)的消息复杂度，因此也有明显的瓶颈。有没有算法能解决这个问题呢？Libra的LibraBFT共识协议选用的 [Hotstuff](https://tedyin.com/archive/hotstuff-podc2019.pdf) 拜占庭容错算法通过“门限签名+三阶段确认”很巧妙的解决了这个问题。
 
 Hotstuff的第一作者是康奈尔大学的在读博士生尹茂帆老师。对比前面的两阶段确认，我们看到，Hotstuff在prepare和commit中间多了一个pre-commit阶段，为什么多一轮投票就能解决消息复杂度的问题呢？
 
@@ -296,7 +296,3 @@ Libra的实现中有3种proposer策略：FixedProposer、MultipleOrderedProposer
 2. 当下主流的共识协议，例如Pow、Pos、BFT等；
 3. Libra使用了Hotstuff算法，属于BFT的一种，因此我们了解了很多跟BFT相关的背景知识，主要包括两阶段确认、三阶段确认以及链式Hotstuff；
 4. 最后，我们了解了Libra的consensus组件，包括投票流程、确定proposer的流程、Reconfiguration流程等等，基本上覆盖了LIbraBFT共识协议的主要过程。
-
-
-
-[1]: https://tedyin.com/archive/hotstuff-podc2019.pdf
