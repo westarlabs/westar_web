@@ -200,4 +200,5 @@ Libra涉及的东西比较多，我们从三条线介绍Libra的设计与实现�
 
 ### 相关连接
 https://github.com/libra/libra
+
 https://developers.libra.org/docs/the-libra-blockchain-paper
