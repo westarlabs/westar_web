@@ -1,6 +1,6 @@
 ---
 title: 以Transaction的生命周期为线索剖析Libra核心组件
-date: 2020-01-13
+date: 2020-02-09
 description: "2020年1月04日，Westar实验室组织了第二次技术Meetup，我们围绕Libra主题，探讨了Libra架构、共识以及Move语言"
 author: 邓启明
 draft: false
@@ -13,6 +13,14 @@ keywords:
 categories:
 - blog
 ---
+
+Libra涉及的东西比较多，我们从三条线介绍Libra的设计与实现：
+
+1. 通过分析Node启动并加入到Libra网络的过程，介绍[Network组件的设计与实现](http://westar.io/blog/libra_network/)；
+2. 围绕[Transaction的生命周期](http://westar.io/blog/libra_tx/)，分析其接收交易、打包区块、运行上链的过程，介绍Libra的Mempool、Executor以及Storage、VM等核心组件；
+3. 围绕LibraBFT，介绍[Consensus组件](http://westar.io/blog/libra_consensus/)以及区块达成共识的过程
+
+
 
 前面我们讲述了Libra的第一条主线——Node启动以及加入网络的过程，详细介绍了Network组件的设计与实现。这里，我们将要讲述Libra的第二条主线——Transaction的生命周期，再围绕Transaction的生命周期，逐个讲述Libra各个核心组件的一些设计与实现。在讲述生命周期之前，我们先了解一下账号模型以及Transaction与Move合约的关系。
 

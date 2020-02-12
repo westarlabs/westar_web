@@ -1,5 +1,5 @@
 ---
-title: 解析BFT的关键细节以及Libra的Consensus组件
+title: 探讨BFT的关键细节及Libra的Consensus组件
 date: 2020-02-10
 description: "2020年1月04日，Westar实验室组织了第二次技术Meetup，我们围绕Libra主题，探讨了Libra架构、共识以及Move语言"
 author: 邓启明
@@ -17,6 +17,14 @@ keywords:
 categories:
 - blog
 ---
+Libra涉及的东西比较多，我们从三条线介绍Libra的设计与实现：
+
+1. 通过分析Node启动并加入到Libra网络的过程，介绍[Network组件的设计与实现](http://westar.io/blog/libra_network/)；
+2. 围绕[Transaction的生命周期](http://westar.io/blog/libra_tx/)，分析其接收交易、打包区块、运行上链的过程，介绍Libra的Mempool、Executor以及Storage、VM等核心组件；
+3. 围绕LibraBFT，介绍[Consensus组件](http://westar.io/blog/libra_consensus/)以及区块达成共识的过程
+
+
+
 前面我们讲述Libra的第二条主线——Transaction的生命周期，了解了Libra核心组件大概的设计和实现。其中Consensus组件我们只是简单介绍，在实际场景下，Consensus组件需要保证在很多分布在全球不同地区的Validator节点达成共识。在分布式的情况下，保证区块或者说交易的顺序最终一致，可以说，这是整个区块链的灵魂。因此我们单独介绍Consensus流程：
 
 1. 为什么需要Consensus？
