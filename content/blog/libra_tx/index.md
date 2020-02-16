@@ -24,17 +24,13 @@ Libra涉及的东西比较多，我们从三条线介绍Libra的设计与实现�
 
 前面我们讲述了Libra的第一条主线——Node启动以及加入网络的过程，详细介绍了Network组件的设计与实现。这里，我们将要讲述Libra的第二条主线——Transaction的生命周期，再围绕Transaction的生命周期，逐个讲述Libra各个核心组件的一些设计与实现。在讲述生命周期之前，我们先了解一下账号模型以及Transaction与Move合约的关系。
 
+
+
 ### 账号模型
 
 实际上区块链可以简单的理解为：使用Transaction为载体，按大部分人认可的顺序记录每个Address的变更过程。为了达到这个目的，区块链发展至今抽象出两种账号模型：以BTC为代表的UTXO模型和以ETH为代表的Account模型。这两种模型各有优劣，简单对比一下：
 
-|          | UTXO   | Account   |
-| -------- | ------ | --------- |
-| 代表公链 | BTC    | ETH/Libra |
-| 状态     | 无状态 | 有状态    |
-| 隐私性   | 好     | 较好      |
-| 编程性   | 较好   | 好        |
-| 类比     | 纸钞   | 银行卡    |
+![libra-account](./images/libra_account.jpg)
 
 UTXO的英文是Unspent Transaction Output，直译就是未消费的交易输出，一个Address的当前状态就是一个UTXO列表。UTXO模型下，消费(构造Transaction)的时候拿出一个或者多个UTXO当作当前Transaction的Input，然后生成多个UTXO，Input和Output的总额是相等的。在未来的某个时刻，这些Output又被当做其他Transaction的Input。是不是跟纸钞有些像？而Account模型中，每个Address通常包含一个的总额和SequenceNumber计数器。每次消费(构造Transaction)的时候会从当前Address的总额中减去消费额，在另一个Address中加上相应的消费额，同时通过SequenceNumber递增的方式，保证当前Address构造的出来的所有Transaction有先后顺序，从而保障账号的状态正确。
 
