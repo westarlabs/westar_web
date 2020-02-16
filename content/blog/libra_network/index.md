@@ -118,6 +118,8 @@ Libra涉及的东西比较多，我们从三条线介绍Libra的设计与实现�
 ​		g. 各服务的端口以及其他配置，没有特殊要求的话，默认就好
 
 
+
+
 ### 启动Node
 
 1. 连接Libra的测试网络
@@ -134,7 +136,9 @@ Libra涉及的东西比较多，我们从三条线介绍Libra的设计与实现�
 
 当前node启动起来之后，会根据seed_peers的配置，去连接相应的node节点，加入到网络中去，如果没有seed_peers则会启动一个单独的网络。接下来，我们深入了解一下Node的Network的一些设计与核心实现。
 
-### Network
+
+
+### Network组件
 
 ##### 1. Network核心模块
 
@@ -162,6 +166,8 @@ Libra涉及的东西比较多，我们从三条线介绍Libra的设计与实现�
 
 以上是Libra的Network组件的一个整体实现，接下来我们介绍一下Libra的协议。
 
+
+
 ##### 2. Libra的主要协议
 
 上面我们对Network组件有了一个宏观的认识，这里我们介绍一下Libra包含的协议：
@@ -188,6 +194,8 @@ Libra涉及的东西比较多，我们从三条线介绍Libra的设计与实现�
 
 前面我们提到了多路复用，上面的协议都是通过MultiStream分别开了SubStream，逻辑上把消息协议区分出来。其中Identity、Health、Discovery是所有node都会包含的基本协议，而Consensus是只有Validator节点才会包含的协议。
 
+
+
 ### 总结
 
    最开始我们讲了Node启动流程，讲述了config配置需要注意的地方以及node启动的方式和流程。然后我们深入到Network组件，讲了Network的组成模块以及提供的协议能力。我们以单节点为例，将整个启动以及加入网络的过程总结如下图：
@@ -198,7 +206,7 @@ Libra涉及的东西比较多，我们从三条线介绍Libra的设计与实现�
 
 
 
-### 相关连接
+### 相关链接
 https://github.com/libra/libra
 
 https://developers.libra.org/docs/the-libra-blockchain-paper
