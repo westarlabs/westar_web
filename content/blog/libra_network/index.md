@@ -25,7 +25,7 @@ categories:
 
 在进入主题之前，我们先对Libra有一个整体的认识：
 
-![libra-1](https://tva1.sinaimg.cn/large/0082zybply1gbtqcqizcej30ym0u00w2.jpg)
+![libra-1](./images/libra.jpg)
 
 看过Libra技术白皮书的朋友，应该都记得这张图，下面简单介绍一下这些核心的组件（后面还会有更详细的讨论）：
 
