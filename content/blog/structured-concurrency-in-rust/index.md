@@ -1,6 +1,6 @@
 ---
 title: Structured Concurrency in Rust
-draft: true
+draft: false
 date: 2020-02-15
 description: "并发，是程序员在日常编程中难以绕开的话题，本文介绍一种并发编程范式-结构化并发(Structured Concurrency)。首先给出它的概念和现状，然后着重介绍 Rust 的一个实现 - task_scope，最后给出一个例子展示如何在实践中使用。"
 author: lerencao
