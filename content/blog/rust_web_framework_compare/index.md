@@ -82,7 +82,7 @@ Actix-web是已知的所有web框架实现了actor模型，由微软的工程师
  
  * 缺点：大量的unsafe(如下图)，导致经常有开发爆出堆栈溢出的bug；这也是他性能最好的原因之一；
  
- <img src="images/unsafe.png" alt="drawing" width="500">
+ ![rust-web-1](./images/unsafe.png)
 
 他的另外一个缺点，代码质量不高，频繁变动，至少是web模块这块，文档和实例也不全；比如0.7版的handle，到1.0版变成service，他封装的responder，也不稳定，下面跟rocket的实现一起展开比较。 
 ### Rocket
@@ -97,8 +97,7 @@ Rocket的缺点：性能上会略差些，后面会给出压测数据。不过�
 
 ### 汇总
 简单汇总一个表格（如下图），总结下：从大家的关注度上，Rocket胜出；Actix-web的功能会多些，比如websocket等；从使用和应用层的周边支持上，Rocket做的最好；所以不太在意性能的话，建议选择Rocket。下来我们就就详细讨论下Rocket。
-
- <img src="images/huizong.png" alt="drawing" width="500">
+ ![rust-web-2](./images/huizong.png)
 
 ## Rocket
 ### Rocket设计原则
@@ -270,7 +269,7 @@ Fairing可以应用在一些动态改配置的场景，或者多种环境的复�
 
 ## 压测数据参考
 最后我们给出之前做的压测结果：
- <img src="images/stress.png" alt="drawing" width="500">
+ ![rust-web-2](./images/stress.png)
  
 上述表格中Rocket sync（master分支）并发只能到50，如果业务场景非常注重性能的话，那你就慎重考虑，或者你持续关注async分支的进展；另外比较了hyper框架debug和release方式的差异，其他的差异比例也类似。
 
