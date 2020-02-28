@@ -1,5 +1,5 @@
 ---
-title: 从智能合约的演进看 Move 的架构设计（上)
+title: 从智能合约的演进看 Move 的架构设计
 date: 2020-02-19
 description: "通过智能合约的演进角度，分析 Move 的设计以及它要解决的关键问题"
 author: jolestar
