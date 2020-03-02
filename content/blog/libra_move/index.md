@@ -228,7 +228,7 @@ Merkle tree 来实现累加器其实就是要提供一种给 Merkle tree 动态�
 ![sparse-merkle-tree](images/sparse-merkle-tree.png)
 (图片来源 libra 白皮书)
 
-Ethereum 用 Merkle Tree 来存状态，提供状态证明，遇到的第一个问题就是 Merkle Tree 的高度太高，计算和存储成本高，生成的证明也很大。于是它做了一个优化，相当于把二叉树给变成十六叉树了。而 Libra 的做法是还保留二叉树，但给它做压缩。比如上图中的 1 是一棵完整的二叉树，2 优化掉了空的子树，3 在不产生分歧的情况下，优化掉了中间的节点，缩短了路径。可以说和 Ethereum 的 Merkle Patricia Tree 殊途同归，但 Sparse Merkle tree 的一个独特优点是可以提供不存在证明。
+Ethereum 用 Merkle Tree 来存状态，提供状态证明，遇到的第一个问题就是 Merkle Tree 的高度太高，计算和存储成本高，生成的证明也很大。于是它做了一个优化，相当于把二叉树给变成十六叉树了。而 Libra 的做法是还保留二叉树，但给它做压缩。比如上图中的 1 是一棵完整的二叉树，2 优化掉了空的子树，3 在不产生分歧的情况下，优化掉了中间的节点，缩短了路径。可以说和 Ethereum 的 Merkle Patricia Tree 殊途同归，但 Sparse Merkle tree 的一个独特优点是可以提供不存在证明。更详细的算法实现分析可以看 @lerencao 的文章 [Jellyfish Merkle Tree in Libra Blockchain](http://westar.io/blog/jellyfish-merkle-tree-in-libra/) 。
 
  ### Move 的现状
 
