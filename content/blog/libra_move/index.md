@@ -130,7 +130,7 @@ First-class Resources 包含两层的含义。一层就是大家常说的一等�
 
 ### Move 中的基本概念
 
-**Module，Resource|Struct，Function**
+**Module，Resource\|Struct，Function**
 
 Module 和其他语言中的模块，比如 Rust 中的 mod，Ethereum Solidity 中的 Contract 类似，封装了一系列数据结构以及方法。Resource|Struct 和其他语言中的 Struct 一样，都是用来定义新的数据结构类型。Resourc 和 |Struct 的区别是 Resource 要存储到外部状态中，并且是不可复制的。Function 和其他语言中的 Function 没有太大区别。
 
@@ -182,7 +182,7 @@ LibraAccount 的 T 中的 balance 字段是 LibraCoin.T  类型的，所以针�
 
 这个脚本中，资产是从 LibraAccount 中取出，之后又充到 LibraAccount 中。这个可以由每个交易自己定义。
 
-###不支持 Interface 如何定义标准
+### 不支持 Interface 如何定义标准
 
 前面的例子可以看出 Move 如何通过组装以及可见性机制来组合出高级功能，在不提供动态分发的机制下，也保证了足够的扩展。但如果没有 Interface 这样的机制，如何定义像 Ethereum 中的 ERC20 这样的标准？不同的 Token 的实现都不一样，上层的 Defi 协议如何定义？
 
