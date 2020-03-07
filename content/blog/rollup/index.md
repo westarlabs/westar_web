@@ -1,5 +1,5 @@
 ---
-title: "为什么 Vitalik 看好区块链二层扩展方案 Rollup ?"
+title: "深入理解区块链二层扩展方案 Rollup"
 date: 2020-02-20
 draft: false
 description: "Rollup 方案为智能合约的可扩展性打开了大门。那么什
