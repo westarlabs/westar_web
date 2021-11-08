@@ -45,7 +45,7 @@
                 <ul class="am-nav am-nav-pills am-topbar-nav">
 
                     {{ $currentNode := . }}
-                    {{ range .Site.Menus.main }}
+                    {{ range sort .Site.Menus.main ".Weight"}}
                         {{ if .HasChildren }}
                             <li class="am-dropdown {{if $currentNode.HasMenuCurrent "main" . }} am-active {{end}}" data-am-dropdown>
                                 <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:void(0);">{{ .Name }}</a>
