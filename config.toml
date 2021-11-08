@@ -21,6 +21,14 @@ hasCJKLanguage=true
 
 [[menu.main]]
     parent = "项目"
+    identifier = "Starcoin Blockchain"
+    name = "Starcoin Blockchain"
+    weight = 1
+    pre = "新⼀代分层的智能合约和分布式⾦融⽹络"
+    url = "https://starcoin.org"
+
+[[menu.main]]
+    parent = "项目"
     identifier = "Sirius Protocol"
     name = "Sirius Protocol"
     weight = 2
@@ -67,6 +75,6 @@ hasCJKLanguage=true
 
 
 [params]
-  keywords="Westar Blockchain"
+  keywords="Westar Blockchain Starcoin"
   description="创建下一代分层区块链及金融基础设施"
-  author="westar"
+  author="Westar Lab"
