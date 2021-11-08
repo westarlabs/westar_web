@@ -479,6 +479,15 @@ ul.am-dropdown-content > li > a {
     height: 600px;
 }
 
+.section-five-bg {
+    background: url("../images/section_four.png") no-repeat;
+    background-size: cover;
+    background-position: bottom left;
+    position: relative;
+    height: 600px;
+
+}
+
 .section-two-right {
     width: 40%;
     height: auto;
