@@ -1,3 +1,19 @@
+---
+title: 深入浅出分析Starcoin的架构设计
+date: 2021-11-15
+description: "Starcoin使用增强的PoW共识，是首个使用Move作为智能合约语言的无许可公链，也是把DAO链上治理做得最彻底的公链"
+author: 邓启明
+draft: false
+tags:
+- starcoin
+- blockchain
+keywords:
+- starcoin
+- blockchain
+categories:
+- blog
+---
+
 ## Starcoin的架构
 
 2021年5月18日，Starcoin，新⼀代分层的智能合约和分布式⾦融⽹络，正式启动主网。Starcoin使用增强的PoW共识，是首个使用Move作为智能合约语言的无许可公链，也是把DAO链上治理做得最彻底的公链。Westar实验室作为开源技术的爱好者，有幸接触了一些Starcoin的设计和实现，为开源社区贡献了一点点力量。这里，我们从技术的角度，介绍一下Starcoin。
