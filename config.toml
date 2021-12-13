@@ -66,6 +66,12 @@ hasCJKLanguage=true
 #    url = "/contact/#"
 
 [[menu.main]]
+    identifier = "加入我们"
+    name = "加入我们"
+    weight = 2
+    url = "/blog/westar_careers/"
+
+[[menu.main]]
     identifier = "关于我们"
     name = "关于我们"
     weight = 2
