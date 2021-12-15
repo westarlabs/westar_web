@@ -39,7 +39,7 @@ Starcoin共识是中本聪共识的增强版本。Bitcoin的中本聪共识中�
 
 STC是Starcoin网络的原生Token，发行总量为 3,185,136,000个STC，总量恒定，被锁定在Treasury模块中。一部分奖励那些守护Starcoin网络安全的诚实节点，另一部分通过提款权以线性释放的方式，进入链上生态。通过激励链上生态，让整体应用繁荣。有了繁荣的链上生态应用，链上的基础生态收益，最后通过一些方式让流通的STC再次回归到Treasury模块中。
 
-<img src="https://tva1.sinaimg.cn/large/008i3skNly1gx7nka0f5wj30rg0e6mxx.jpg" alt="starcoin_economy" style="zoom:33%;" />
+![starcoin_economy](./images/starcoin_economy.jpg)
 
 
 
@@ -49,7 +49,7 @@ STC是Starcoin网络的原生Token，发行总量为 3,185,136,000个STC，总�
 
 在Starcoin的账户模型中，任何合约产生的数据，都可以分散地存储在用户各自的账户数据下。用户需要操作自己的数据时，从自己账户下把数据拿出来，传给合约进行操作。一方面，明确了这部分数据是属于哪个账户，另一方面降低了数据的安全隐患。
 
-<img src="https://tva1.sinaimg.cn/large/008i3skNly1gx8rzg22c2j30n60c9gmc.jpg" alt="starcoin_account_example" style="zoom:33%;" />
+![starcoin_account](./images/starcoin_account_example.jpg)
 
 
 
@@ -69,7 +69,7 @@ Starcoin期望选择一个更安全的语言作为其智能合约语言，从语
 
 Move是一门线性逻辑的智能合约语言，面向资源编程，有非常良好的安全特性。智能合约开发者同样在只关注业务逻辑的情况下，能够轻松地写出符合一定安全要求的合约来，可以极大限度地避免溢出、无限增发等常见的安全隐患。
 
-<img src="/Users/dqm/Desktop/内容/文章/Starcoin亮点分析/img/starcoin_resource_vs_info.jpg" alt="starcoin_resource_vs_info" style="zoom:33%;" />
+![starcoin_resource_vs_info](./images/starcoin_resource_vs_info.jpg)
 
 
 
@@ -79,7 +79,7 @@ Move是一门线性逻辑的智能合约语言，面向资源编程，有非常�
 
 Move在面向资源编程提升安全性的基础上，已经支持了一套成熟的形式化验证工具，使用者只需编写SPEC就能通过数学手段来为程序的安全性提供证明，轻松地避免由于疏忽而引起的很多安全隐患。
 
-<img src="https://tva1.sinaimg.cn/large/008i3skNly1gx9pk8b2fpj30e8062wf9.jpg" alt="starcoin_move_spec" style="zoom:70%;" />
+![starcoin_move_spec](./images/starcoin_move_spec.jpg)
 
 
 
@@ -103,7 +103,7 @@ Starcoin在Stdlib中定制了一套非常通用的链上治理DAO合约，开箱
 
 这是一个通用的DAO，支持任何类型的Token投票。投票有有效时间，只有在规定的时间内，投票数达到Token流通量的4%的阈值之后，投票才有效。如果赞成票多余反对票，则投票通过，否则，反对票多余赞成票，则投票未通过。
 
-![starcoin_dao](https://tva1.sinaimg.cn/large/008i3skNly1gx9pmb3zfcj307i048weg.jpg)
+![starcoin_dao](./images/starcoin_dao.jpg)
 
 
 
@@ -113,7 +113,9 @@ Starcoin崇尚法律即代码。在某些极特殊的情况下，Starcoin也希�
 
 Starcoin的合约通过Module名来标记唯一性，Ethereum的合约通过HashCode来标记唯一性。所以Starcoin的智能合约能够在保证兼容性的情况下，进行升级。然后，通过与链上治理DAO进行结合，对合约的升级进行投票，在全体社区成员的监督下，达到安全升级智能合约的目的。Starcoin的Stdlib就使用这种方式安全的升级。
 
-<img src="https://tva1.sinaimg.cn/large/008i3skNly1gxe7u0lr91j30mc0tyjt8.jpg" alt="4" style="zoom:33%;" />
+![starcoin_upgrade](./images/starcoin_upgrade.jpg)
+
+
 
 ## 可扩展的二层
 
@@ -121,9 +123,9 @@ Starcoin是分层的智能合约与DeFi网络，这意味着Starcoin不仅仅有
 
 Starcoin的二层将是一个通用的方案。通过寻找一种安全的算法，让一层和二层更native地结合，让数据能够在两层之间安全、自由、便捷地流通。
 
+![starcoin_logo](./images/starcoin_logo.jpg)
 
 
-<img src="https://tva1.sinaimg.cn/large/008i3skNly1gx9ppdr5vtj30us0ayt94.jpg" alt="starcoin_logo" style="zoom:33%;" />
 
 
 ## Starcoin的更多特性
